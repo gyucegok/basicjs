@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: basicpy
+  name: basicjs
   labels:
-    app: basicpy
+    app: basicjs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: basicpy
+      app: basicjs
   template:
     metadata:
       labels:
-        app: basicpy
+        app: basicjs
     spec:
       containers:
-        - name: basicpy
-          image: europe-west1-docker.pkg.dev/gyucegok-alto/dock/basicpy:COMMITSHA
+        - name: basicjs
+          image: europe-west1-docker.pkg.dev/gyucegok-alto/dock/basicjs
           ports:
           - name: http-server
             containerPort: 8080
