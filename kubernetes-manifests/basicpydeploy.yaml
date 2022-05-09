@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basicpy
+  labels:
+    app: basicpy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basicpy
+  template:
+    metadata:
+      labels:
+        app: basicpy
+    spec:
+      containers:
+        - name: basicpy
+          image: europe-west1-docker.pkg.dev/gyucegok-alto/dock/basicpy:COMMITSHA
+          ports:
+          - name: http-server
+            containerPort: 8080
+          env:
+          - name: PORT
+            value: "8080"
